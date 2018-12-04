@@ -5,6 +5,7 @@
     <title>Lista Telefonica</title>
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/ui.css">
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-locale_pt-br.js"></script>
     <script src="lib/angular/angular-messages.js"></script>
@@ -17,12 +18,22 @@
     <script src="js/config/serialGeneratorConfig.js"></script>
     <script src="js/filters/nameFilter.js"></script>
     <script src="js/filters/ellipsisFilter.js"></script>
+    <script src="js/directives/uiAlertDirective.js"></script>
 </head>
 
 <body ng-controller="listaTelefonicaCtrl">
     <div class="jumbotron">
         <h4>{{app}}</h4>
         {{message}}
+
+        <ui-alert title="Ops, aconteceu um problema">
+            {{error}}
+        </ui-alert>
+        
+        <ui-alert title="Série sobre AngularJS">
+            Ep. 10 - Criando diretivas
+        </ui-alert>
+        
         <input type="text" class="form-control" ng-model="criterioBusca" placeholder="O que está buscando?" />
         <table ng-show="contatos.length > 0" class="table">
             <tr>
