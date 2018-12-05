@@ -19,21 +19,38 @@
     <script src="js/filters/nameFilter.js"></script>
     <script src="js/filters/ellipsisFilter.js"></script>
     <script src="js/directives/uiAlertDirective.js"></script>
+    <script src="js/directives/uiDate.js"></script>
+    <script src="js/directives/uiAccordionDirective.js"></script>
 </head>
 
 <body ng-controller="listaTelefonicaCtrl">
     <div class="jumbotron">
+
+        <ui-accordions>
+            <ui-accordion title="Accordion1">
+                hahdiahdihadihadhaidhiahiahidfhadshifahsdhfashdfhashf
+                hduahidhaahaihdahdad
+                haduahdihaudhaudaidhd
+                hdadiahdihdid
+            </ui-accordion>
+            <ui-accordion title="Accordion2">
+                hdahidahdiohaidhaihdaa
+                haudhaihdahdahdahdahdhdahdahdahduahdoadoadaklçdffaskdofpa
+                djhioajdajdajdklajdkajdklajdajd
+            </ui-accordion>
+        </ui-accordions>
+
         <h4>{{app}}</h4>
         {{message}}
 
         <ui-alert title="Ops, aconteceu um problema">
             {{error}}
         </ui-alert>
-        
+
         <ui-alert title="Série sobre AngularJS">
             Ep. 10 - Criando diretivas
         </ui-alert>
-        
+
         <input type="text" class="form-control" ng-model="criterioBusca" placeholder="O que está buscando?" />
         <table ng-show="contatos.length > 0" class="table">
             <tr>
@@ -62,6 +79,7 @@
             <input class="form-control" type="text" ng-model="contato.nome" name="nome" ng-required="true" ng-minlength="10" />
             <input class="form-control" type="text" ng-model="contato.telefone" name="telefone" ng-required="true"
                 ng-pattern="/^\d{4,5}-\d{4}$/" />
+            <input class="form-control" type="text" ng-model="contato.data" name="data" placeholder="data" ui-date />
             <select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + '( ' + (operadora.preco | currency) + ' )'   group by operadora.categoria for operadora in operadoras | orderBy:'nome'">
                 <option value="">Selecione uma operadora</option>
             </select>
