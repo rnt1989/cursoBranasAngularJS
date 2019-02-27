@@ -1,0 +1,55 @@
+<div class="jumbotron">
+
+    <ui-accordions>
+        <ui-accordion title="Accordion1">
+            hahdiahdihadihadhaidhiahiahidfhadshifahsdhfashdfhashf
+            hduahidhaahaihdahdad
+            haduahdihaudhaudaidhd
+            hdadiahdihdid
+        </ui-accordion>
+        <ui-accordion title="Accordion2">
+            hdahidahdiohaidhaihdaa
+            haudhaihdahdahdahdahdhdahdahdahduahdoadoadaklçdffaskdofpa
+            djhioajdajdajdklajdkajdklajdajd
+        </ui-accordion>
+    </ui-accordions>
+
+    <h4>{{app}}</h4>
+    {{message}}
+
+    <ui-alert title="Ops, aconteceu um problema">
+        {{error}}
+    </ui-alert>
+
+    <ui-alert title="Série sobre AngularJS">
+        Ep. 10 - Criando diretivas
+    </ui-alert>
+
+    <input type="text" class="form-control" ng-model="criterioBusca" placeholder="O que está buscando?" />
+    <table ng-show="contatos.length > 0" class="table">
+        <tr>
+            <th></th>
+            <th>Serial</th>
+            <th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
+            <th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
+            <th>Operadora</th>
+            <th>Data</th>
+            <th></th>
+        </tr>
+        <tr ng-class="{'negrito selecionado': contato.selecionado}"
+            ng-repeat="contato in contatos | filter:criterioBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+            <td><input type="checkbox" ng-model="contato.selecionado" /></td>
+            <td>{{contato.serial}}</td>
+            <td><a href="#/detalhesContato/{{contato.id}}">{{contato.nome | name}}</a></td>
+            <td>{{contato.telefone}}</td>
+            <td>{{contato.operadora.nome | uppercase}}</td>
+            <td>{{contato.data | date:'MMMM EEEE dd/MM/yyyy HH:MM'}}</td>
+            <td>
+                <div style="width: 20px; height: 20px;" ng-style="{'background-color': contato.cor}"></div>
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <a class="btn btn-primary btn-block" href="#/novoContato">Novo Contato</a>
+
+</div>
